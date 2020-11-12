@@ -1,4 +1,3 @@
-
 for(let hour = 9; hour < 18; hour++) {
     $(".container").append(createTimeSlot(hour));
 }
@@ -9,7 +8,9 @@ function createTimeSlot(hour) {
   .attr("value", hour)
   .attr("class", "row time-block");
 
-  const $timeLabel = $("<div>").attr("class", "col-md-1 hour");
+  const $timeLabel = $("<div>")
+  .attr("class", "col-md-1 hour")
+  .addClass("currentHour");
 
   if (hour > 12) {
     $timeLabel.text(`${hour - 12} PM`);
@@ -20,6 +21,7 @@ function createTimeSlot(hour) {
   }
 
   const $textArea = $("<textarea>")
+  .attr("value", hour)
   .attr("class", "col-md-10 description");
 
   const $saveBtn = $("<button>")
@@ -28,16 +30,17 @@ function createTimeSlot(hour) {
 
   $timeSlot.append($timeLabel, $textArea, $saveBtn);
   
-  let currentTime = luxon.DateTime.local().toFormat("H");
+  let currentTime = parseInt(luxon.DateTime.local().toFormat("H"));
+
   $(".container").each(function(block){
 
       console.log($timeSlot.attr("value"));
       if($timeSlot.attr("value") < currentTime) {
-          $textArea.css("background-color", "gray");
+          $textArea.addClass("past");
           } else if ($timeSlot.attr("value") == currentTime){
-            $textArea.css("background-color", "red");
+            $textArea.addClass("present");
           } else{
-            $textArea.css("background-color", "green");
+            $textArea.addClass("future");
           }
   });
   return $timeSlot;

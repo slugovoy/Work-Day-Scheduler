@@ -19,4 +19,4 @@ If you no longer need your notes, you can erase them by pushing "Clear" button( 
 
 ![Clear button and time](images/localTime.png)
 
-Here is a link to deployed project 
+Here is a link to deployed project https://slugovoy.github.io/Work-Day-Scheduler/

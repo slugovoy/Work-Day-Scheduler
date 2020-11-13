@@ -19,4 +19,11 @@ If you no longer need your notes, you can erase them by pushing "Clear" button( 
 
 ![Clear button and time](images/localTime.png)
 
+
+Here is an example of code that allows to save data to local storage.
+
+![Code Example](images/codeExample.png)
+
+
+
 Here is a link to deployed project https://slugovoy.github.io/Work-Day-Scheduler/
